@@ -1,11 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>app</title>
-  </head>
-  <body>
-    <app></app>
-    <script src="dist/build.js"></script>
-  </body>
+    <link rel="stylesheet" media="all" href="node_modules/bulma/css/bulma.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+
+    <link rel="stylesheet" media="all" href="src/style/app.css">
+    <title>Lecture</title>
+</head>
+<body id="app">
+<section class="hero is-info">
+    <div class="hero-head is-info">
+        <div class="container">
+            <nav class="nav is-dark">
+                <div class="nav-left">
+                    <a v-link="{ path: '/' }" class="nav-item">
+                        <h1>Lecture</h1>
+                    </a>
+                </div>
+
+                <div class="nav-center">
+                    <a class="nav-item" href="#">
+      <span class="icon">
+        <i class="fa fa-github"></i>
+      </span>
+                    </a>
+                    <a class="nav-item" href="#">
+      <span class="icon">
+        <i class="fa fa-twitter"></i>
+      </span>
+                    </a>
+                </div>
+
+  <span class="nav-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+
+                <div class="nav-right nav-menu">
+                    <a v-link="{ path: '/register' }" class="nav-item">
+                        Register
+                    </a>
+                    <a  v-link="{ path: '/login' }" class="nav-item">
+                        Connexion
+                    </a>
+                    <a v-link="{ path: '/about' }" class="nav-item">
+                        About
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+    <router-view></router-view>
+</section>
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Bulma</strong> by <a href="http://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+            </p>
+            <p>
+                <a class="icon" href="https://github.com/jgthms/bulma">
+                    <i class="fa fa-github"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+<script src="dist/build.js"></script>
+</body>
 </html>
