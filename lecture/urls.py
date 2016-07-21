@@ -15,12 +15,27 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.auth.views import logout
+
+from lecture.views import login_lecture, home
+from lecture.forms import LectureAuthenticationForm
+
+
+# login data
+login_data = {
+    'authentication_form': LectureAuthenticationForm,
+}
+
+# logout data
+logout_data = {'template_name': 'rest_framework/login.html'}
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', 'lecture.views.home'),
+    url(r'^$', home),
 
     # api
     url(r'^api/feedroot/', include('lecture.feed.urls')),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/login/', login_lecture, login_data, name='login'),
+    url(r'^api/logout/$', logout, logout_data, name='logout'),
 ]
